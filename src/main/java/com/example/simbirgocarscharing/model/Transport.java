@@ -1,5 +1,6 @@
 package com.example.simbirgocarscharing.model;
 
+import com.example.simbirgocarscharing.model.enums.RentTypes;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -34,6 +35,8 @@ public class Transport extends AbstractEntity {
     @Column
     private double dayPrice;
 
+    private RentTypes rentType;
+
     @JsonManagedReference
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "model_id")
@@ -65,7 +68,8 @@ public class Transport extends AbstractEntity {
                      double minutePrice,
                      double dayPrice,
                      Model modelId,
-                     Account ownerId) {
+                     Account ownerId,
+                     RentTypes rentType) {
         this.canBeRated = canBeRated;
         this.color = color;
         this.identifier = identifier;
@@ -76,6 +80,7 @@ public class Transport extends AbstractEntity {
         this.dayPrice = dayPrice;
         this.modelId = modelId;
         this.ownerId = ownerId;
+        this.rentType = rentType;
     }
 
     public Transport(boolean canBeRated,
@@ -88,7 +93,8 @@ public class Transport extends AbstractEntity {
                      double dayPrice,
                      Model modelId,
                      Account ownerId,
-                     Account arendatorId) {
+                     Account arendatorId,
+                     RentTypes rentType) {
         this.canBeRated = canBeRated;
         this.color = color;
         this.identifier = identifier;
@@ -100,6 +106,7 @@ public class Transport extends AbstractEntity {
         this.modelId = modelId;
         this.ownerId = ownerId;
         this.arendatorId = arendatorId;
+        this.rentType = rentType;
     }
 
     public boolean isCanBeRated() {
@@ -196,6 +203,14 @@ public class Transport extends AbstractEntity {
 
     public void setHistoryAccountList(List<Account> historyAccountList) {
         HistoryAccountList = historyAccountList;
+    }
+
+    public RentTypes getRentType() {
+        return rentType;
+    }
+
+    public void setRentType(RentTypes rentType) {
+        this.rentType = rentType;
     }
 
     @Override
