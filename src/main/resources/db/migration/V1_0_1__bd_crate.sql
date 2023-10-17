@@ -29,7 +29,7 @@ DROP TABLE IF EXISTS project.account CASCADE;
 create table IF NOT EXISTS project.account
 (
     id numeric not null
-        constraint transport_pkey
+        constraint account_pkey
             primary key,
     user_name varchar(250) not null,
     password varchar(250) not null,
@@ -59,10 +59,10 @@ create table IF NOT EXISTS project.transport
         constraint model_id_fkey
             references project.model not null,
     owner_id numeric
-        constraint account_id_fkey
+        constraint owner_account_id_fkey
             references project.account not null unique,
     arendator_id numeric
-        constraint account_id_fkey
+        constraint arendator_account_id_fkey
             references project.account unique
 );
 
@@ -101,11 +101,11 @@ INSERT INTO project.transport_type (id, type_of_transport) VALUES (1, 'Type1');
 INSERT INTO project.transport_type (id, type_of_transport) VALUES (2, 'Type2');
 INSERT INTO project.transport_type (id, type_of_transport) VALUES (3, 'Type3');
 
-INSERT INTO project.model (id, model_name, transport_type_id) VALUES (1, 1,'Model1');
-INSERT INTO project.model (id, model_name, transport_type_id) VALUES (2, 2,'Model2');
-INSERT INTO project.model (id, model_name, transport_type_id) VALUES (3, 3,'Model3');
-INSERT INTO project.model (id, model_name, transport_type_id) VALUES (4, 2,'Model4');
-INSERT INTO project.model (id, model_name, transport_type_id) VALUES (5, 3,'Model5');
+INSERT INTO project.model (id, model_name, transport_type_id) VALUES (1, 'Model1', 1);
+INSERT INTO project.model (id, model_name, transport_type_id) VALUES (2, 'Model2', 2);
+INSERT INTO project.model (id, model_name, transport_type_id) VALUES (3, 'Model3', 3);
+INSERT INTO project.model (id, model_name, transport_type_id) VALUES (4, 'Model4', 2);
+INSERT INTO project.model (id, model_name, transport_type_id) VALUES (5, 'Model5', 1);
 
 INSERT INTO project.account (id, user_name, password, balance, is_admin) VALUES (1, 'Name 1', '', 200.0, false);
 INSERT INTO project.account (id, user_name, password, balance, is_admin) VALUES (2, 'Name 2', '1', 300.0, false);
@@ -131,7 +131,7 @@ INSERT INTO project.transport (id,
                                longitude,
                                minutePrice,
                                dayPrice, model_id, owner_id)
-VALUES (1, true, 'Red', 'a124KA99RUS', '', 10.11241, 25.78852, 201.50, 3500, 2, 2);
+VALUES (2, true, 'Red', 'a124KA99RUS', '', 10.11241, 25.78852, 201.50, 3500, 2, 2);
 
 INSERT INTO project.transport (id,
                                can_be_rated,
@@ -142,4 +142,4 @@ INSERT INTO project.transport (id,
                                longitude,
                                minutePrice,
                                dayPrice, model_id, owner_id)
-VALUES (1, true, 'Red', 'b099AA54RUS', '', 11.22353, 27.44755, 800.77, 5500, 3, 3);
+VALUES (3, true, 'Red', 'b099AA54RUS', '', 11.22353, 27.44755, 800.77, 5500, 3, 3);

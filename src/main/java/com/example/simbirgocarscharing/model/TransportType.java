@@ -13,7 +13,7 @@ public class TransportType extends AbstractEntity {
     private String typeOfTransport;
 
     @JsonBackReference
-    @OneToMany(mappedBy = "transport_type", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "transportType", fetch = FetchType.LAZY)
     private List<Model> modelList;
 
     public TransportType() {

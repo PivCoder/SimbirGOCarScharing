@@ -24,8 +24,12 @@ public class Account extends AbstractEntity {
     private boolean isAdmin;
 
     @JsonBackReference
-    @OneToMany(mappedBy = "account", fetch = FetchType.LAZY)
-    private List<Transport> transportList;
+    @OneToMany(mappedBy = "ownerId", fetch = FetchType.LAZY)
+    private List<Transport> ownerTransportList;
+
+    @JsonBackReference
+    @OneToMany(mappedBy = "arendatorId", fetch = FetchType.LAZY)
+    private List<Transport> arendatorTransportList;
 
     @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -52,12 +56,12 @@ public class Account extends AbstractEntity {
                    String password,
                    BigDecimal balance,
                    boolean isAdmin,
-                   List<Transport> transportList) {
+                   List<Transport> ownerTransportList) {
         this.userName = userName;
         this.password = password;
         this.balance = balance;
         this.isAdmin = isAdmin;
-        this.transportList = transportList;
+        this.ownerTransportList = ownerTransportList;
     }
 
     public String getUserName() {
@@ -92,12 +96,12 @@ public class Account extends AbstractEntity {
         isAdmin = admin;
     }
 
-    public List<Transport> getTransportList() {
-        return transportList;
+    public List<Transport> getOwnerTransportList() {
+        return ownerTransportList;
     }
 
-    public void setTransportList(List<Transport> transportList) {
-        this.transportList = transportList;
+    public void setOwnerTransportList(List<Transport> transportList) {
+        this.ownerTransportList = transportList;
     }
 
     public List<Transport> getHistoryTransportList() {
@@ -106,6 +110,14 @@ public class Account extends AbstractEntity {
 
     public void setHistoryTransportList(List<Transport> historyTransportList) {
         this.historyTransportList = historyTransportList;
+    }
+
+    public List<Transport> getArendatorTransportList() {
+        return arendatorTransportList;
+    }
+
+    public void setArendatorTransportList(List<Transport> arendatorTransportList) {
+        this.arendatorTransportList = arendatorTransportList;
     }
 
     @Override
