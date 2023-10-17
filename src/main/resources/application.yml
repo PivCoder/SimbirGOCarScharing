@@ -4,9 +4,9 @@ server:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5522/CarScharing
-    username: postgres
-    password: root
+    url: jdbc:postgresql://localhost:5432/CarScharing
+    username: bd_admin
+    password: admin
 
   flyway:
     locations:
