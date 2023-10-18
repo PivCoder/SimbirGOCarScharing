@@ -236,6 +236,7 @@ public class Transport extends AbstractEntity {
                 ", longitude=" + longitude +
                 ", minutePrice=" + minutePrice +
                 ", dayPrice=" + dayPrice +
+                ", rentType=" + rentType +
                 '}';
     }
 }

@@ -55,6 +55,7 @@ create table IF NOT EXISTS project.transport
     longitude real not null,
     minutePrice real,
     dayPrice real,
+    rentType varchar(25) not null ,
     model_id numeric
         constraint model_id_fkey
             references project.model not null,
@@ -119,8 +120,11 @@ INSERT INTO project.transport (id,
                                latitude,
                                longitude,
                                minutePrice,
-                               dayPrice, model_id, owner_id)
-VALUES (1, true, 'Red', 'с065MK78RUS', '', 10.07785, 25.12256, 150.50, 2000, 1, 1);
+                               dayPrice,
+                               rentType,
+                               model_id,
+                               owner_id)
+VALUES (1, true, 'Red', 'с065MK78RUS', '', 10.07785, 25.12256, 150.50, 2000, 'MINUTES', 1, 1);
 
 INSERT INTO project.transport (id,
                                can_be_rated,
@@ -130,8 +134,11 @@ INSERT INTO project.transport (id,
                                latitude,
                                longitude,
                                minutePrice,
-                               dayPrice, model_id, owner_id)
-VALUES (2, true, 'Red', 'a124KA99RUS', '', 10.11241, 25.78852, 201.50, 3500, 2, 2);
+                               dayPrice,
+                               rentType,
+                               model_id,
+                               owner_id)
+VALUES (2, true, 'Red', 'a124KA99RUS', '', 10.11241, 25.78852, 201.50, 3500, 'DAYS', 2, 2);
 
 INSERT INTO project.transport (id,
                                can_be_rated,
@@ -141,5 +148,8 @@ INSERT INTO project.transport (id,
                                latitude,
                                longitude,
                                minutePrice,
-                               dayPrice, model_id, owner_id)
-VALUES (3, true, 'Red', 'b099AA54RUS', '', 11.22353, 27.44755, 800.77, 5500, 3, 3);
+                               dayPrice,
+                               rentType,
+                               model_id,
+                               owner_id)
+VALUES (3, true, 'Red', 'b099AA54RUS', '', 11.22353, 27.44755, 800.77, 5500, 'DAYS', 3, 3);
