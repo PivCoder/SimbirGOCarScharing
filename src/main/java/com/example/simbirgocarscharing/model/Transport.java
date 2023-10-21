@@ -16,7 +16,6 @@ public class Transport extends AbstractEntity {
     @Column
     private String color;
 
-    //TODO сделать regex
     @Column
     private String identifier;
 

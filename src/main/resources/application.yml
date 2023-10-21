@@ -5,8 +5,8 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/CarScharing
-    username: bd_admin
-    password: admin
+    username: postgres
+    password: changeme
 
   flyway:
     locations:

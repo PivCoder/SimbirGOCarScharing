@@ -124,7 +124,7 @@ INSERT INTO project.transport (id,
                                rentType,
                                model_id,
                                owner_id)
-VALUES (1, true, 'Red', 'с065MK78RUS', '', 10.07785, 25.12256, 150.50, 2000, 'MINUTES', 1, 1);
+VALUES (1, true, 'Red', 'C065MK78', '', 10.07785, 25.12256, 150.50, 2000, 'MINUTES', 1, 1);
 
 INSERT INTO project.transport (id,
                                can_be_rated,
@@ -138,7 +138,7 @@ INSERT INTO project.transport (id,
                                rentType,
                                model_id,
                                owner_id)
-VALUES (2, true, 'Red', 'a124KA99RUS', '', 10.11241, 25.78852, 201.50, 3500, 'DAYS', 2, 2);
+VALUES (2, true, 'Red', 'A124KA99', '', 10.11241, 25.78852, 201.50, 3500, 'DAYS', 2, 2);
 
 INSERT INTO project.transport (id,
                                can_be_rated,
@@ -152,4 +152,4 @@ INSERT INTO project.transport (id,
                                rentType,
                                model_id,
                                owner_id)
-VALUES (3, true, 'Red', 'b099AA54RUS', '', 11.22353, 27.44755, 800.77, 5500, 'DAYS', 3, 3);
+VALUES (3, true, 'Red', 'B099AA54', '', 11.22353, 27.44755, 800.77, 5500, 'DAYS', 3, 3);
